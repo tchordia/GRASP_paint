@@ -19,6 +19,6 @@
   "homepage": "https://github.com/tchordia/GRASP_paint#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "3.10.3"
+    "express": "4.13.4"
   }
 }
