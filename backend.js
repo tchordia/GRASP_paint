@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 
-const PORT = 8080;
+const PORT = process.env.PORT;
 
 app.disable('x-powered-by');
 
