@@ -1,0 +1,23 @@
+{
+  "name": "paint_app",
+  "version": "1.0.0",
+  "description": "Research labelling ",
+  "private": true,
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tchordia/Paintapp-Javascript-Canvas-GAE.git"
+  },
+  "author": "tchordia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tchordia/Paintapp-Javascript-Canvas-GAE/issues"
+  },
+  "homepage": "https://github.com/tchordia/Paintapp-Javascript-Canvas-GAE#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2"
+  }
+}
