@@ -9,15 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tchordia/Paintapp-Javascript-Canvas-GAE.git"
+    "url": "git+https://github.com/tchordia/GRASP_paint.gitt"
   },
   "author": "tchordia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tchordia/Paintapp-Javascript-Canvas-GAE/issues"
+    "url": "https://github.com/tchordia/GRASP_paint/issues"
   },
-  "homepage": "https://github.com/tchordia/Paintapp-Javascript-Canvas-GAE#readme",
+  "homepage": "https://github.com/tchordia/GRASP_paint#readme",
   "dependencies": {
     "body-parser": "^1.15.2"
+    "express": "3.10.3"
   }
 }
