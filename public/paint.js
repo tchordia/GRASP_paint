@@ -1,11 +1,14 @@
+var storage = firebase.storage();
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 context.strokeStyle = "red";
 
 var filename = location.search.replace(/^.*?\=/, '');
-console.log(window.location.search);
+filename = parseInt(filename);
+var cur = 1;
+var url ='https://grasp-window-img.s3.amazonaws.com/Window_cropped_numbered/grasp_window_img_' + filename + '.png';
 
-$('#canvas').css('background','url(public/img/' + filename + '.jpg)');
+$('#canvas').css('background','url('+ url + ')'); 
 
 var beginX;
 var beginY;
@@ -13,7 +16,6 @@ var sideX;
 var sideY;
 var select;
 var currentColor; 
-
 var data = {"rect":[]}
 
 canvas.addEventListener('mousedown', function(evt) {
@@ -40,23 +42,6 @@ canvas.addEventListener('mouseup', function(evt) {
         data.rect.push({"beginx":beginX, "beginy":beginY, "sidex":sideX, "sidey":sideY, "color":currentColor});   
 }, false);
       
-function saveImage() {
-    if(imagename.value=="")
-		alert("Image name cannot be empty") ; 
-	else {
-        $.post("/?imagename="+imagename.value,{imagename:imagename.value, string:JSON.stringify(data)});
-		alert("saved");
-	}
-}
-
-function loadImage() {
-    if(imagename.value=="")
-		alert("Image name cannot be empty");
-	else {
-		document.location.href="/?imagename="+imagename.value;	
-	}
-}
-
 function clearCanvas() {  
     context.clearRect(0, 0, canvas.width, canvas.height);
     //location.reload();
@@ -91,18 +76,42 @@ function drawRect(x1, y1, x2, y2) {
         context.strokeRect(x1, y1, x2, y2);    
 }
 
-$('#sub').click(function onclick() {
+var callback = function () {
+  console.log("incallback")
+  filename = filename + 1;
+  cur = cur + 1;
+  clearCanvas();
+  if (cur < 6) {
+    var url ='https://grasp-window-img.s3.amazonaws.com/Window_cropped_numbered/grasp_window_img_' + filename + '.png';
+    $('#canvas').css('background','url('+ url + ')'); 
+    $('#counter').html(cur);
+  } else {
+    console.log(window.location.pathname + 'thanks');
+    window.location.replace('/thanks');
+  }
+}
+  
+$('#success').click(function onclick() {
  
  console.log('click: post to ' +  window.location.pathname); 
   var data = {
-    lol:"wau!",
+    win:1,
+    filename:filename,
     x1: beginX,
     y1: beginY,
     x2: sideX,
     y2: sideY
   }
-  $.post(window.location.pathname, data, function(){
-    console.log('success!');
-  })
+  $.post(window.location.pathname, data, callback);
   
+});
+
+$('#nowindow').click(function onclick() {
+ 
+ console.log('click: post to ' +  window.location.pathname); 
+  var data = {
+    win:0,
+    filename:filename,
+  }
+  $.post(window.location.pathname, data, callback);  
 });

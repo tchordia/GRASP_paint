@@ -2,12 +2,60 @@
 <html>
 <head>
 <title>Paint</title>
+<link rel="stylesheet" type="text/css" href="public/main.css">
 </head>
 <body>
-  <canvas id="canvas" width="640" height="480" style="border:1px solid #000000;position: absolute;top: 100px;left: 400px; background:url(public/img/badass.jpg);"></canvas>
+  
+  <h2> Welcome to Paint!</h2>
+  
+  <p>
+  You will be presented with 5 images. Follow these instructions for each image. Please view on a computer (laptop or desktop) with a modern browser.</br>
 
-  <button id = "sub" type="buttom"> Submit </button>  
+  Step 0) Locate the inside of the window in the image below </br>
+  Step 1) Draw a rectangle AROUND the INSIDE of the window: if the window is at an angle, make sure full inside of the  window is inside the bounding box! </br>
+  Step 2) Click the submit button. This will take you to the next image.  </br>
+  Step 3) If you don't see a window in the image, click the "No window" button  </br>
+ 
+  P.S. If you drew the wrong rectangle, simply draw another rectangle to clear the first. </br>
+
+ Here are some GOOD examples:
+ <figure>
+ <img height = '200' src='public/white.png'> 
+ <img height = '200' src='public/good.png'>
+ <img height = '200' src='public/better.png'>
+ <figcaption>Good Examples: (leftmost is "no window") </figcaption>
+ </figure>
+ 
+ Here are some BAD examples:
+ <figure>
+ <img height = '200' src='public/bad1.png'> 
+ <img height = '200' src='public/bad2.png'>
+ <img height = '200' src='public/bad4.png'>
+ <figcaption>BAD Examples: (leftmost should be "no window") </figcaption>
+ </figure>
+  </p>
+
+  <h2> Your image: <span id = 'counter'> 1 </span>/5 </h2>
+
+
+  <canvas id="canvas" width="480" height="480" style="border:1px solid #000000; background:url(public/img/badass.jpg);"></canvas>
+  </br>
+  
+  <button id = "success" class= "sub" type="button"> Submit </button>  
+  <button id = "nowindow" class= "sub nowin" type="button"> No Window </button>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCo2nBtCq0VfYveGllVKYfN_7Mv5kzjuiw",
+    authDomain: "grasp-pics.firebaseapp.com",
+    databaseURL: "https://grasp-pics.firebaseio.com",
+    storageBucket: "grasp-pics.appspot.com",
+    messagingSenderId: "319098415620"
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="public/paint.js"></script>
 </body>
 </html>
