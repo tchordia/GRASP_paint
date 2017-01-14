@@ -78,10 +78,12 @@ function drawRect(x1, y1, x2, y2) {
 
 var callback = function () {
   console.log("incallback")
-  filename = filename + 1;
+  
   cur = cur + 1;
   clearCanvas();
   if (cur < 6) {
+
+    filename = filename + 1;
     var url ='https://grasp-window-img.s3.amazonaws.com/Window_cropped_numbered/grasp_window_img_' + filename + '.png';
     $('#canvas').css('background','url('+ url + ')'); 
     $('#counter').html(cur);
@@ -102,7 +104,7 @@ $('#success').click(function onclick() {
     x2: sideX,
     y2: sideY
   }
-  $.post(window.location.pathname, data, callback);
+  $.post('/', data, callback);
   
 });
 

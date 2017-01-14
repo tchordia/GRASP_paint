@@ -37,13 +37,15 @@
 
   <h2> Your image: <span id = 'counter'> 1 </span>/5 </h2>
 
-
+  Remember: there is no back button! make sure your submission is correct before you hit the button. 
+  </br>
   <canvas id="canvas" width="480" height="480" style="border:1px solid #000000; background:url(public/img/badass.jpg);"></canvas>
   </br>
   
   <button id = "success" class= "sub" type="button"> Submit </button>  
   <button id = "nowindow" class= "sub nowin" type="button"> No Window </button>  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </br>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -57,5 +59,6 @@
   firebase.initializeApp(config);
 </script>
 <script src="public/paint.js"></script>
+ 
 </body>
 </html>
